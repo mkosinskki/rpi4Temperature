@@ -8,7 +8,7 @@ void readTemperature()
     FILE *file;
     char buffer[128];
 
-    file = popen("vcgencmd measuere_temp", "r");
+    file = popen("sudo vcgencmd measure_temp", "r");
     if(file == NULL)
     {
         perror("Cannot execute vcgencmd");
