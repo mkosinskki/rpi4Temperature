@@ -28,5 +28,25 @@ void readTemperature()
 
 int main(int argc, char *argv[]) 
 {
-    printf("Hello world");
+    if(argc != 2)
+    {
+        printf("Usage: %s [time in seconds]\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    int interval = atoi(argv[1]);
+    
+    if(interval <= 0)
+    {
+        printf("Time interval should be at least 1");
+        return EXIT_FAILURE;
+    }
+
+    while(1)
+    {
+        readTemperature();
+        sleep(interval);
+    }
+
+    return EXIT_SUCCESS;
 }
